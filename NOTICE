@@ -1,0 +1,9 @@
+红果短剧去广告 · Stash 覆写
+Copyright 2026 lzwsoldier
+
+本仓库的穿山甲(CSJ)广告 SDK 域名列表修改自
+azel-ko/stash-adblock-rules (https://github.com/azel-ko/stash-adblock-rules)，
+该项目以 Apache License 2.0 授权。
+
+其余域名（zijieapi.com、ad-sign 素材域名、广告效果追踪域名等）
+来自真机连接观察与社区公开去广告规则的交叉验证。
