@@ -1,0 +1,36 @@
+name: "红果短剧去广告"
+desc: |-
+  拦截红果短剧（含番茄系 App）广告：穿山甲(CSJ)广告 SDK、字节自家广告 API(zijieapi)、
+  广告素材 CDN 与广告效果追踪域名。
+  纯 REJECT 拦截，无需 MitM 证书，不修改机场订阅，可与其他覆写叠加。
+  注意：「看广告领金币/权益」会一并失效（与普通广告共用 SDK）；首页剧集推荐卡片、
+  金币任务、VIP 推广为红果第一方业务，无法通过域名拦截去除。
+author: "lzwsoldier"
+homepage: "https://github.com/lzwsoldier/stash-hongguo-adblock"
+category: "广告过滤"
+version: "1.0.0"
+
+rules:
+  # === 穿山甲 / CSJ 广告 SDK：开屏广告、激励视频、GroMore 聚合、广告模板与渲染包 ===
+  # 域名列表修改自 azel-ko/stash-adblock-rules (Apache-2.0)
+  - DOMAIN,api-access.pangolin-sdk-toutiao.com,REJECT,no-track
+  - DOMAIN,api-access.pangolin-sdk-toutiao1.com,REJECT,no-track
+  - DOMAIN,api-access.pangolin-sdk-toutiao-b.com,REJECT,no-track
+  - DOMAIN,gromore.pangolin-sdk-toutiao.com,REJECT,no-track
+  - DOMAIN,ether-pack.pangolin-sdk-toutiao.com,REJECT,no-track
+  - DOMAIN,sf3-fe-tos.pglstatp-toutiao.com,REJECT,no-track
+  - DOMAIN,sf6-fe-tos.pglstatp-toutiao.com,REJECT,no-track
+  - DOMAIN,cm.bilibili.com,REJECT,no-track
+  # === 字节自家广告 API：信息流广告请求(ads*)、广告配置(tnc)、风控(mssdk)、埋点(mon/applog/abtest) ===
+  # 来源：真机连接观察 + 社区番茄小说去广告规则交叉验证
+  - DOMAIN-SUFFIX,zijieapi.com,REJECT,no-track
+  # === 广告素材静态资源 CDN ===
+  - DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT,no-track
+  - DOMAIN-SUFFIX,pstatp.com,REJECT,no-track
+  - DOMAIN-SUFFIX,pangle.cn,REJECT,no-track
+  # 广告图片素材（p3/p9-ad-sign.byteimg.com 等轮换子域）
+  - DOMAIN-KEYWORD,ad-sign,REJECT,no-track
+  # === 广告效果追踪 ===
+  - DOMAIN,effect.snssdk.com,REJECT,no-track
+  - DOMAIN,ichannel.snssdk.com,REJECT,no-track
+  - DOMAIN,zlink.toutiao.com,REJECT,no-track
